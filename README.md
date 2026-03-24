@@ -1,4 +1,7 @@
-# Learn Marathi Alexa Skill - Backend
+# Learn Marathi Alexa Skill (Proof Of Concept - POC)
+
+> [!IMPORTANT]
+> <span style="color:red">This is a **learning project** meant for educational purposes. It is not a complete, production-ready Alexa skill that will work out of the box. It requires local setup (Ollama, PostgreSQL, etc.) and manual configuration.</span>
 
 A modular FastAPI backend for an Alexa Skill that helps in learning Marathi. It features semantic search, RAG (Retrieval-Augmented Generation)-based Q&A, and English-Marathi translation.
 
