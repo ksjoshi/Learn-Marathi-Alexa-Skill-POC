@@ -132,9 +132,21 @@ Sample Response:
 
 The code in `lambda/AlexaSkillLambda.py` is designed to run in AWS Lambda. It communicates with the local API (usually via a tunnel like Ngrok or a VPN during development).
 
-**Supported Intents:**
-- `TranslateIntent`: Translates English phrases to Marathi.
-- `SchoolIntent`: Asks questions about the school syllabus using the RAG system.
+### 1. Expose Local Port
+To make your local FastAPI server accessible to AWS Lambda, you can use `ngrok`:
+```bash
+ngrok http 9999
+```
+
+### 2. Update Lambda Configuration
+After starting `ngrok`, update the following variables in `lambda/AlexaSkillLambda.py` with the generated URL (e.g., `https://your-id.ngrok-free.app`):
+- `RAG_URL`: Should point to `https://your-id.ngrok-free.app/rag/ask`
+- `TRANSLATE_URL`: Should point to `https://your-id.ngrok-free.app/translate`
+
+### 3. Supported Intents
+- `TranslateIntent`: Translates English phrases to Marathi. (Phrase: "translate" followed by sentence)
+- `SchoolIntent`: Asks questions about the school syllabus using the RAG system. (Phrase: "get school details" followed by a question in English or Marathi)
+- `MyIntent`: A simple test intent for connectivity verification.
 
 ## 🔍 How OCR Works here
 
