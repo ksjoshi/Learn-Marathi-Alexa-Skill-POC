@@ -64,6 +64,18 @@ pip install -r requirements.txt
 
 ### 4. Database Setup
 Ensure you have a PostgreSQL database named `marathi_knowledge`.
+
+You can quickly start PostgreSQL with `pgvector` using Docker:
+```bash
+docker run -d \
+  --name marathi_db \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=marathi_knowledge \
+  -p 5432:5432 \
+  pgvector/pgvector:0.8.2-pg18-trixie
+```
+
 Run the following SQL to enable `pgvector` and create the documents table:
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
@@ -89,6 +101,32 @@ Start the FastAPI server:
 python -m app.main
 ```
 The API will be available at `http://localhost:9999`. You can view the interactive documentation at `http://localhost:9999/docs`.
+
+### Testing the API
+
+Once the service is started, you can test it using the following commands:
+
+**Translate API:**
+```bash
+curl -X POST http://localhost:9999/translate \
+     -H "Content-Type: application/json" \
+     -d '{"phrase": "How are you?"}'
+```
+Sample Response:
+```json
+{"success":true,"translated_text":"तू कसा आहेस?","error":null}
+```
+
+**Ask API (RAG):**
+```bash
+curl -X POST http://localhost:9999/rag/ask \
+     -H "Content-Type: application/json" \
+     -d '{"query": "how many marks for the full name ?"}'
+```
+Sample Response:
+```json
+{"success":true,"answer":"३ गुण असल्याने संपूर्ण नावाची माहिती घेण्यासाठी ३ गुण दिले जातील.","context_used":6,"top_similarity":0.6545276127791653,"error":null}
+```
 
 ## 🗣 Using with Alexa
 

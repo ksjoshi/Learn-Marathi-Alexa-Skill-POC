@@ -1,2 +1,12 @@
 marathi_syllabus.pdf
 patang_marathi_song_lyrics.pdf
+.idea/
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
