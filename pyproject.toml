@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "learn-marathi-skill"
+version = "0.1.0"
+description = "Alexa Skill for learning Marathi"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pymupdf = "*"
+psycopg2-binary = "*"
+sentence-transformers = "*"
+requests = "*"
+pytesseract = "*"
+Pillow = "*"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

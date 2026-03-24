@@ -1,0 +1,10 @@
+pymupdf
+psycopg2-binary
+sentence-transformers
+requests
+pytesseract
+Pillow
+fastapi
+uvicorn
+pydantic
+pydantic-settings
