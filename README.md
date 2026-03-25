@@ -61,8 +61,17 @@ ollama pull translategemma
 ```
 
 ### 3. Install Dependencies
+It's recommended to create a virtual environment first:
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+```
+Alternatively, you can use:
+```bash
+pip3 install -r requirements.txt
+# or
+python3 -m pip install -r requirements.txt
 ```
 
 ### 4. Database Setup
@@ -94,14 +103,14 @@ CREATE TABLE documents (
 ### 5. Ingest Documents
 Process your Marathi PDFs into the vector database:
 ```bash
-python scripts/pdf_to_vector.py path/to/your/marathi_syllabus.pdf
+python3 scripts/pdf_to_vector.py path/to/your/marathi_syllabus.pdf
 ```
 
 ## 🏃 Running the API
 
 Start the FastAPI server:
 ```bash
-python -m app.main
+python3 -m app.main
 ```
 The API will be available at `http://localhost:9999`. You can view the interactive documentation at `http://localhost:9999/docs`.
 
